@@ -1,7 +1,7 @@
 # A New Multimodal Dataset and Method for Classroom Atmosphere Assessment in Real-world Environment
 
 ## About the dataset：
-![image](https://github.com/Anonymous-AQA/3MTAQADataset/blob/main/MUSDL%2BLVFL/fig/Dataset.jpg)
+![image](https://github.com/anonymity-author/CAADataset/tree/main/CAAM/fig/dataset.png)
 Figure 1. An Overview and distribution of the CAA dataset. More precisely, the Lesson ID denotes the unique number assigned to each classroom video. Each recorded lesson is associated with four feature labels and three modal data. The four labels include classroom atmosphere score, classroom atmosphere binarization (1: pass, 0: failed), regression grade and teacher gender. The three modal data consist of audio, visual, and text, as detailed in Section 3.3. In addition, the distribution of five grades can be observed at the bottom right of the Figure, and they are Excellent, Good, Medium, Poor and Failed.
 
   The CAA dataset consists of 1500 recorded classroom videos from 1500 teachers in a total of 6 National Teacher Lecture Competitions. As each competition's video covers different levels of teaching scenarios, there are sufficient positive and negative samples. For each classroom video, it contains 9 features, including 6 visual features, 2 audio features, and 1 transcribed text feature. The dataset provides a total of 13500 learnable feature data that are publicly available for classroom atmosphere assessment. Additionally, the dataset covers 9 secondary school subjects, namely Chinese, Mathematics, English, Politics, History, Geography, Physics, Chemistry, and Biology.
@@ -25,7 +25,7 @@ Pytorch >=1.8.0
 ### Dataset Preparation
 **CAA dataset**
 
-If the article is accepted for publication, you can download our prepared CAA dataset demo from ["Google Drive"](https://drive.google.com/file/d/16KydZ6cJCjpulp5NRAzmCdCcWb0fb80-/view?usp=sharing) . Then, please move the uncompressed data folder to `./CAAM/data`. 
+If the article is accepted for publication, you can download our prepared CAA dataset from ["Google Drive"]. Then, please move the uncompressed data folder to `./CAAM/data`. 
 
 Then, run the following commands to preprocess the dataset:
 
