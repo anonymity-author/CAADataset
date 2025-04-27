@@ -1,0 +1,76 @@
+OUTPUT_DIR: result
+SAVE_CONFIG_NAME: result.yaml
+CKPTS_DIR: ./CAAM/caa_model
+TYPE: result
+MANUAL_SEED: 1
+LOG_TITLE:  audio + visual + text data
+
+DATA:
+  TRAIN_ROOT_DIR: ./caa_dataset/Preprocessing_CAA4/CAA-generated_database/train/clipped_data/
+  VALIDATION_ROOT_DIR: ./caa_dataset/Preprocessing_CAA4/CAA-generated_database/train/original_data/
+  TEST_ROOT_DIR: ./caa_dataset/Preprocessing_CAA4/CAA-generated_database/test/clipped_data/
+  USE_MEL_SPECTROGRAM: True
+  VISUAL_WITH_GAZE: True
+  PADDING:
+  RESCALE_SIZE:
+  CROP_SIZE:
+  BATCH_SIZE: 128 # TODO
+  NUM_WORKERS: 0  # TODO
+
+MODEL:
+  ATM_THRESHOLD: 10
+  EPOCHS: 100
+  WEIGHTS:
+    TYPE: new
+    DATE:
+    PATH: model_weights
+    NAME:
+    INCLUDED: ['audio_net', 'visual_net', 'text_net', 'evaluator']
+  VISUAL_NET:
+    INPUT_DIM: 3
+    CONV_HIDDEN: 256
+    TCN_HIDDEN: 256
+    OUTPUT_DIM: 256
+    ACTIVATION: relu  # ['sigmoid', 'softmax', 'global', else]
+    NORM: bn          # ['bn', 'wn']: nn.BatchNorm1d, nn.utils.weight_norm
+    DROPOUT: 0.7
+  AUDIO_NET:
+    INPUT_DIM: 80
+    CONV_HIDDEN: 256
+    TCN_HIDDEN: 256
+    OUTPUT_DIM: 256
+    ACTIVATION: relu  # ['sigmoid', 'softmax', 'global', else]
+    NORM: bn          # ['bn', 'wn']: nn.BatchNorm1d, nn.utils.weight_norm
+    DROPOUT: 0.7
+  TEXT_NET:
+    INPUT_DIM: 512
+    CONV_HIDDEN: 256
+    TCN_HIDDEN: 256
+    OUTPUT_DIM: 256
+    ACTIVATION: relu  # ['sigmoid', 'softmax', 'global', else]
+    NORM: bn          # ['bn', 'wn']: nn.BatchNorm1d, nn.utils.weight_norm
+    DROPOUT: 0.7
+  EVALUATOR:
+    INPUT_FEATURE_DIM: 768         # sum of all output dim form each feature net
+    CLASSES_RESOLUTION: 32
+    N_CLASSES: 100
+    DROPOUT: 0.5
+    STD: 5
+    ATTENTION:
+      INPUT_DIM: 1
+      HIDDEN_DIM: 4
+      BASE_WIDTH: 256
+      FUSE_TYPE: iAFF   # ['iAFF', 'AFF', 'DAF' , 'CBAM', 'SE', 'ECA']
+  CRITERION:
+    USE_SOFT_LABEL: True
+    USE_WEIGHTS: True
+  OPTIMIZER:
+    LR: 5e-4
+    WEIGHT_DECAY: 5e-5
+    USE_SAM: True
+  SCHEDULER:
+    STEP_SIZE: 10
+    GAMMA: 0.90
+    
+
+
