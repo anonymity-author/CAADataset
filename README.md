@@ -25,7 +25,7 @@ Pytorch >=1.8.0
 ### Dataset Preparation
 **CAA dataset**
 
-If the article is accepted for publication, you can download our prepared CAA dataset from ["Google Drive"]. Then, please move the uncompressed data folder to `./CAAM/data`. 
+If the article is accepted for publication, you can download our prepared CAA dataset from ["Google Drive"](https://drive.google.com/file/d/1Ids-Ao1BgXYf8YE3w8ssJcOdH97xSbjy/view?usp=sharing). Then, please move the uncompressed data folder to `./CAAM/data`. 
 
 Then, run the following commands to preprocess the dataset:
 
